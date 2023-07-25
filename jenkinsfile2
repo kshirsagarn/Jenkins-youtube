@@ -1,0 +1,50 @@
+pipeline{
+    agent any
+    stages{
+        stage("Echo a Line"){
+            steps{
+                echo 'Welcome to DevOps'
+            }
+           
+        }
+        stage("Run a Command"){
+            steps{
+                sh 'pwd'
+            }
+           
+        }
+        stage("Run a Multiple Command"){
+            steps{
+                sh '''
+                pwd
+                ls
+                date 
+                cal 2023'''
+            }
+           
+        }
+        stage("D"){
+            steps{
+                echo "========executing A========"
+            }
+           
+        }
+        stage("E"){
+            steps{
+                echo "========executing A========"
+            }
+           
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}  
